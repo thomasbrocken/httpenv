@@ -29,7 +29,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v4
         with:
-          images: thomasbrocken/httpenv
+          images: elahon/httpenv
           flavor: |
             latest=false
           tags: |
