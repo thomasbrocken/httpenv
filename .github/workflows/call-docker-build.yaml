@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: ${{ github.event_name != 'pull_request' }}
-          tags: thomasbrocken/httpenv:latest,thomasbrocken/httpenv:01
+          tags: elathon/httpenv:latest,elathon/httpenv:01
