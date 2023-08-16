@@ -13,6 +13,9 @@ jobs:
     name: Build Image
     runs-on: ubuntu-latest
     steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
             
@@ -29,3 +32,4 @@ jobs:
           tags: elathon/httpenv:latest,elathon/httpenv:01
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          platforms: linux/amd64,linux/arm64,linux/arm/v7
