@@ -53,6 +53,13 @@ jobs:
           cache-to: type=gha,mode=max
           platforms: linux/amd64,linux/arm64,linux/arm/v7
 
+      - name: Run Trivy for all CVEs (non-blocking)
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: ${{ github.run_id }}
+          exit-code: 0
+          format: table 
+
       - name: Find comment for image tags
         uses: peter-evans/find-comment@v2
         if: github.event_name == 'pull_request'
@@ -78,4 +85,4 @@ jobs:
             ```text
             ${{ steps.docker_meta.outputs.labels }}
             ```
-          edit-mode: replace
+          edit-mode: replace  
